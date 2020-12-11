@@ -3,7 +3,7 @@ function [ERPmat] = ERP_func(range, chan, stim_start, stim_end, stim_times, d2)
 % channel to a repeated stimulation in a given block
 
 % points in stim_times that are 1s apart in one block
-block = stim_times(stim_start:stim_end);
+block = stim_start:stim_end;
 
 % for each channel, we want a .9sec (range) ERP
 ERPmat = zeros(chan, round(range*512));

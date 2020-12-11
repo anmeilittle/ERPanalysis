@@ -2,10 +2,8 @@
 % ERP script
 
 % % load data
-d = h5read('DC_stim_1_512hz.h5', '/data');
+d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/CH_stim_comb', '/data');
 d2 = squeeze(d);
-
-%d2 = d2(1:203, :);
 chan = length(d2(:,1));
 
 % % finding times
@@ -71,7 +69,7 @@ for i = 1:2:length(eachstart)
     ERPmatrix3D(:,:,i) = ERPmat;
 end
 
-save('ERPmatResults1.mat','ERPmat');
+save('ERPmatResults2','ERPmatrix3D');
 
 % %plot stim times with a channel to check rounding
 % startt = 606;
