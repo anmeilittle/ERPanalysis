@@ -3,6 +3,7 @@
 
 #SBATCH --output=ft_load-%j.out
 #SBATCH -t 30:00
+#SBATCH --nodes=4
 #SBATCH --mem-per-cpu 25000
 
 # Load modules

@@ -1,7 +1,7 @@
 % ERP script
 
 % % load data
-d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/RW_stim_comb', '/data');
+d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/DC_stim_comb', '/data');
 d2 = squeeze(d);
 chan = length(d2(:,1));
 
@@ -91,4 +91,4 @@ for i = 1:length(eachstart)
     ERPmatrix3D(:,:,i) = ERPmat;
 end
 
-save('ERPmatResults4.mat','ERPmat');
+save('ERPmatResults1.mat','ERPmatrix3D');
