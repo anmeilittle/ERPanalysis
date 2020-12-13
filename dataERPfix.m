@@ -60,7 +60,7 @@ else
 end
 
 %remove duplicates
-alltimes2 = 0
+alltimes2 = 0;
 %loop through all values
 for i = 1:length(alltimes)-1
     if abs(alltimes(i+1) - alltimes(i)) <= .5 %.004 %idk if this is valid
@@ -82,13 +82,15 @@ for i = 1:length(alltimes2)-1
     end
 end
 
-range = 0.7; %set range (no delay)
-ERPmatrix3D = zeros(chan, round(range*512), length(eachstart));
+save('eachstart1.mat', 'eachstart');
+
+%range = 0.7; %set range (no delay)
+%ERPmatrix3D = zeros(chan, round(range*512), length(eachstart));
 
 
-for i = 1:length(eachstart)
-    [ERPmat] = ERP_func(range, chan, eachstart(i), eachstart(i)+n, stim_times, d2);
-    ERPmatrix3D(:,:,i) = ERPmat;
-end
+%for i = 1:length(eachstart)
+ %   [ERPmat] = ERP_func(range, chan, eachstart(i), eachstart(i)+n, stim_times, d2);
+ %   ERPmatrix3D(:,:,i) = ERPmat;
+%end
 
-save('ERPmatResults1.mat','ERPmatrix3D');
+%save('ERPmatResults1.mat','ERPmatrix3D');
