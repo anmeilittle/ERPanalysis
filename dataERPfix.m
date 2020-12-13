@@ -1,7 +1,7 @@
 % ERP script
 
 % % load data
-d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/DC_stim_comb', '/data');
+d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/RW_stim_comb', '/data');
 d2 = squeeze(d);
 chan = length(d2(:,1));
 
@@ -36,7 +36,7 @@ for i = 1:chan
 end
 
 % set threshold
-n = 20; 
+n = 50; 
 threshold = ones(1, n);
 Hzstim = zeros(chan, maxlength);
 % find where there are sequences of 1s intervals
@@ -82,15 +82,15 @@ for i = 1:length(alltimes2)-1
     end
 end
 
-save('eachstart1.mat', 'eachstart');
+save('eachstart4.mat', 'eachstart');
 
-%range = 0.7; %set range (no delay)
-%ERPmatrix3D = zeros(chan, round(range*512), length(eachstart));
+range = 0.7; %set range (no delay)
+ERPmatrix3D = zeros(chan, round(range*512), length(eachstart));
 
 
-%for i = 1:length(eachstart)
- %   [ERPmat] = ERP_func(range, chan, eachstart(i), eachstart(i)+n, stim_times, d2);
- %   ERPmatrix3D(:,:,i) = ERPmat;
-%end
+for i = 1:length(eachstart)
+    [ERPmat] = ERP_func(range, chan, eachstart(i), eachstart(i)+n, stim_times, d2);
+    ERPmatrix3D(:,:,i) = ERPmat;
+end
 
-%save('ERPmatResults1.mat','ERPmatrix3D');
+save('ERPmatResults4.mat','ERPmatrix3D');
