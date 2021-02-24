@@ -13,4 +13,4 @@ module load MATLAB/2018b
 cd /gpfs/milgram/project/turk-browne/projects/stimulation_behavior/aal66stim/stimulation_network/ERPanalysis
 
 # Run script
-matlab -nodesktop -nojvm -r "addpath(pwd); addpath('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data'); dataERPfix; exit"
+matlab -nodesktop -nojvm -r "addpath(pwd); addpath('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data'); ERPandChann; exit"

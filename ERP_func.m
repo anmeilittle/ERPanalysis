@@ -4,6 +4,9 @@ function [ERPmat] = ERP_func(range, chan, stim_start, stim_end, stim_times, d2)
 
 % points in stim_times that are 1s apart in one block
 block = stim_start:stim_end;
+for i = 1:10
+    block = [block block(end)+1];
+end
 
 % for each channel, we want a .9sec (range) ERP
 ERPmat = zeros(chan, round(range*512));

@@ -1,15 +1,14 @@
 % ERP script
 
-hinfo = h5info('DC_stim_1_512hz.h5');
-hdata = h5read('DC_stim_1_512hz.h5', '/data');
-d2 = squeeze(hdata);
-d2 = d2(1:193, :); 
+d = h5read('/gpfs/milgram/project/turk-browne/projects/stimulation_behavior/intermediate_data/RW_stim_comb', '/data');
+d2 = squeeze(d);
+d2 = d2(1:81, :); 
 % DC 193
 % CH 137
 % DR 233
 % RW 81
 
-load('labels_DC.mat')
+load('RW_labels.mat')
 chan = length(d2(:,1));
 
 Fs = 512;
@@ -105,7 +104,7 @@ else
 end
 %eachstart is an array of alternating start and end times
 
-% save('eachstart1.mat', 'eachstart');
+save('eachstart4.mat', 'eachstart');
 
 range = 0.7; %set range (no delay)
 ERPmatrix3D = zeros(chan, round(range*512), length(eachstart)/2);
@@ -115,7 +114,7 @@ for i = 1:2:length(eachstart)-1
     ERPmatrix3D(:,:,(i+1)/2) = ERPmat;
 end
 
-save('ERPmatResults1.mat','ERPmatrix3D');
+save('ERPmatResults4.mat','ERPmatrix3D');
 
 %% find stim channels:
 stim_channel_list = cell(2,length(alltimes2));
@@ -141,4 +140,4 @@ for i_stim = 1:length(alltimes2)
     Everything(i_stim,:) = [alltimes2(i_stim) k_sort(1) k_sort(2)];
 end
 
-% save('StimLoc_DC, 'Everything');
+save('StimLoc4', 'Everything');
